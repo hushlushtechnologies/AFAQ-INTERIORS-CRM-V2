@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* ───────────── Afaq Al Manzel — design tokens ─────────────
+   Warm ivory canvas, espresso ink, bronze accent.
+   Derived from the brand palette #674F2D #9D825D #D2B48C #E4D5B4 #F5F5DC */
+:root {
+  --background: #f6f2eb;
+  --surface: #fffdf9;
+  --surface-2: #f1ebe2;
+  --ink: #2a2119;
+  --ink-2: #5e5246;
+  --ink-3: #8a7d70;
+  --line: #e6ddd1;
+  --line-strong: #d6c9b8;
+
+  --bronze: #674f2d;
+  --bronze-2: #9d825d;
+  --sand: #d2b48c;
+  --cream: #e4d5b4;
+
+  --espresso: #1f1913;
+  --espresso-2: #2b231b;
+  --espresso-line: #3a2f25;
+
+  --success: #2f6b47;
+  --success-soft: #e3efe6;
+  --warning: #8a5a12;
+  --warning-soft: #f6ebd6;
+  --danger: #a3332f;
+  --danger-soft: #f6e1df;
+  --info: #35548a;
+  --info-soft: #e2e9f4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-bronze: var(--bronze);
+  --color-bronze-2: var(--bronze-2);
+  --color-sand: var(--sand);
+  --color-cream: var(--cream);
+  --color-espresso: var(--espresso);
+  --color-espresso-2: var(--espresso-2);
+  --color-espresso-line: var(--espresso-line);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgba(42, 33, 25, 0.04), 0 8px 24px -12px rgba(42, 33, 25, 0.12);
+  --shadow-float: 0 24px 60px -20px rgba(42, 33, 25, 0.35);
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--line);
+  }
+
+  html,
+  body {
+    background: var(--background);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+::selection {
+  background: var(--cream);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* thin elegant scrollbars */
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 999px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* flat sidebar */
+.sidebar-flat {
+  background: var(--espresso);
+}
+
+/* subtle grain / sheen used on hero surfaces */
+.sheen {
+  background:
+    radial-gradient(120% 140% at 0% 0%, rgba(210, 180, 140, 0.28) 0%, transparent 55%),
+    radial-gradient(90% 120% at 100% 100%, rgba(103, 79, 45, 0.35) 0%, transparent 60%),
+    var(--espresso);
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+  .print-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    max-width: none !important;
+  }
+}
+
+/* pipeline board: always-visible, easy-to-grab horizontal scrollbar */
+.board-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+.board-scroll::-webkit-scrollbar-track {
+  background: var(--surface-2);
+  border-radius: 999px;
+}
+.board-scroll::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 999px;
+  border: 2px solid var(--surface-2);
+}
+.board-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--bronze-2);
+}
